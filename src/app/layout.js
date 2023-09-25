@@ -1,3 +1,5 @@
+import Navbar from '@/components/Navbar'
+import GlobalState from '@/context'
 import './globals.css'
 
 export const metadata = {
@@ -8,7 +10,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <GlobalState>
+          <Navbar />
+          <main>
+            {children}
+          </main>
+        </GlobalState>
+      </body>
     </html>
   )
 }
