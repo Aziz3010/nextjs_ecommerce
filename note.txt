@@ -1,0 +1,3 @@
+Stop: 59:08
+https://www.youtube.com/watch?v=wjjcYfccDFI
+https://github.com/sangammukherjee/NextJS-Ecommerce-2023/tree/master/src/components/CommonModal

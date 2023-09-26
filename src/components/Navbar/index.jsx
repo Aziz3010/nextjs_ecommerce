@@ -47,13 +47,15 @@ function Navbar() {
                             isAdminView ? <button className={styles.button}>Client view</button> : <button className={styles.button}>Admin view</button>
                         : null}
                         {isAuthUser ? <button className={styles.button}>Logout</button> : <button className={styles.button}>Login</button> }
+                        {/* Burger BTN */}
                         <button
                             data-collapse-toggle="navbar-sticky"
                             type="button"
                             className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                             aria-controls="navbar-sticky"
                             aria-expanded="false"
-                            onClick={() => setShowNavModal(true)}
+                            onClick={() => setShowNavModal(!showNavModal)}
+                            
                         >
                             <span className="sr-only">Open main menu</span>
                             <svg
