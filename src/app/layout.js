@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
       <body>
         <GlobalState>
           <Navbar />
-          <main>
+          <main className='flex flex-col min-h-screen mt-[73px]'>
             {children}
           </main>
         </GlobalState>

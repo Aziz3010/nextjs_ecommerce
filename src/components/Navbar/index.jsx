@@ -1,11 +1,11 @@
 "use client"
 import { GlobalContext } from '@/context';
 import React, { Fragment, useContext } from 'react'
-import { navOptions, adminNavOptions, styles } from '../../utils/index'
+import { navOptions, adminNavOptions } from '../../utils/index'
 import CommonModal from '../CommonModel';
 
 const isAdminView = false;
-const isAuthUser = false;
+const isAuthUser = true;
 const user = {
     role: "admin"
 };
@@ -39,16 +39,16 @@ function Navbar() {
                     <div className="flex md:order-2 gap-2">
                         {!isAdminView && isAuthUser ? (
                             <Fragment>
-                                <button className={styles.button}>Account</button>
-                                <button className={styles.button}>Cart</button>
+                                <button className="inline-block bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Account</button>
+                                <button className="inline-block bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Cart</button>
                             </Fragment>
                         ) : null}
                         {user?.role === 'admin' ? 
-                            isAdminView ? <button className={styles.button}>Client view</button> : <button className={styles.button}>Admin view</button>
+                            isAdminView ? <button className="inline-block bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Client view</button> : <button className="inline-block bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Admin view</button>
                         : null}
-                        {isAuthUser ? <button className={styles.button}>Logout</button> : <button className={styles.button}>Login</button> }
+                        {isAuthUser ? <button className="inline-block bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Logout</button> : <button className="inline-block bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Login</button> }
                         {/* Burger BTN */}
-                        <button
+                        {isAuthUser ? <button
                             data-collapse-toggle="navbar-sticky"
                             type="button"
                             className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -71,10 +71,10 @@ function Navbar() {
                                 clipRule="evenodd"
                                 ></path>
                             </svg>
-                        </button>
+                        </button> : null}
                     </div>
                     {/* Middle List */}
-                    <NavItems />
+                    {isAuthUser ? <NavItems /> : null }
                 </div>
             </nav>
             
